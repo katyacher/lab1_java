@@ -22,6 +22,8 @@ public class Triangle extends Shape {
 	}
 	
 	public Triangle(double a, double b, double c, String clr) {
+		super();
+		
 		if (a < MIN_INT || a > MAX_INT) {
 			System.out.println("Длина стороны 'a' треугольника доолжна быть положительным числом от 0 о 99");
 			return;
@@ -39,7 +41,6 @@ public class Triangle extends Shape {
 		side_b = b;
 		side_c = c;
 		
-		color = clr;
 	} 
 	
 	public double getSide_a() {
@@ -99,7 +100,7 @@ public class Triangle extends Shape {
 
 	@Override
 	public String toString() {
-		return "Triangle [side_a=" + side_a + ", side_b=" + side_b + ", side_c=" + side_c +  ", color=" + color + "]";
+		return "Triangle [side_a=" + side_a + ", side_b=" + side_b + ", side_c=" + side_c +  ", color=" + color + ", area="  + area() + "]";
 	}
 
 }

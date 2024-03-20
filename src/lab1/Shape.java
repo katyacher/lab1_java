@@ -1,27 +1,26 @@
 package lab1;
 
 import java.util.Objects;
+import java.util.Random;
 
 public abstract class Shape { 
-	private static int id = 0;
+	protected String color;
 	
 	protected static int MIN_INT = 0;
 	protected static int MAX_INT = 100;
 	
-	protected String color;
 
 	public Shape() {
 		super();
-		id++;
+		/*Цвет выбираем случайным образом из трех вариантов*/
+		String[] colors = {"RED", "GREEN", "BLUE"};
+		Random random = new Random();
+		int pos = random.nextInt(colors.length);
+		color = colors[pos];
 	}
 
-	
 	
 	public abstract double area();
-
-	public static int getId() {
-		return id;
-	}
 	
 	public String getColor() {
 		return color;

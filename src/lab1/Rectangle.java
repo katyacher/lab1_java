@@ -80,7 +80,7 @@ public class Rectangle extends Shape{
 
 	@Override
 	public String toString() {
-		return "Rectangle [side_a=" + side_a + ", side_b=" + side_b  + ", color=" + color + "]";
+		return "Rectangle [side_a=" + side_a + ", side_b=" + side_b  + ", color=" + color + ", area=" + area() + "]";
 	}
 
 }

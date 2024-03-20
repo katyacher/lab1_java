@@ -16,10 +16,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		
+		String s= "";
 		int answer = 0;
 
-        while(true){
+        while( !"5".equals(s)){
         	System.out.println("");
             System.out.println("Выберете действие:");
             System.out.println("1. Добавить новый элемент "); //(Элементы должны добавляться в коллекцию элементов типа базового класса. Необходимо предусмотреть возможность добавления любого объекта производного класса в данную коллекцию).
@@ -28,16 +28,12 @@ public class Main {
             System.out.println("4. Сравнение двух элементов на равенство (по индексам)");
             System.out.println("5. Завершение работы приложения.");
             
+            s = scanner.next(); 
             
-          
-            answer = scanner.nextInt();
-            
-          /*  if(!scanner.hasNextInt()){
-                System.out.println("Некорректные данные, попробуйте снова!");
-                //scanner.nextLine();//очистить буфер
-            } else {*/
-                
-                if(answer > MIN_INT && answer < MAX_INT){
+            try {
+            	answer = Integer.parseInt(s);
+            	
+            	if(answer > MIN_INT && answer < MAX_INT){
                     switch (answer) {
                         case 1:
                             add();
@@ -52,7 +48,7 @@ public class Main {
                             compare();
                             break;
                         case 5:
-                            exit();
+                        	System.out.println("Exit");
                             scanner.close();
                             return;
                         default:
@@ -62,10 +58,16 @@ public class Main {
                     System.out.println("Некорректный диапазон, попробуйте снова!");
                     answer = 0; // устанавливаем answer в 0 для повторного ввода
                 }
-          	}
-       // }
-       
+            	
+            	
+            }catch ( NumberFormatException e) {
+            	System.out.println("Необходимо ввести число от 1 до 5.");
+            };
+            
+        }
 	}
+       
+
 	
 	public static void add() {
 		System.out.println("Выберете тип добавляемой фигуры (Triangle, Rectangle, Square)");
@@ -214,13 +216,8 @@ public class Main {
 		System.out.println(result);
 		return;
 	}
-	
-	public static void exit(){
-		 System.out.println("Exit");
-		  return;
-	}
-	
 }
+
 
 
 

@@ -10,16 +10,14 @@ public class Square extends Shape {
 	public Square() {
 		side_a = 1;//  по-умолчанию генерируется квадрат со стороной, равной 1.
 		
-		/*Цвет выбираем случайным образом из трех вариантов*/
-		String[] colors = {"RED", "GREEN", "BLUE"};
-		Random random = new Random();
-		int pos = random.nextInt(colors.length);
-		color = colors[pos];
+		
 		
 		System.out.println("Создана окружность по-умолчанию");
 	}
 	
 	public Square(double a, String clr) {
+		super();
+		
 		if (a < MIN_INT || a > MAX_INT) {
 			System.out.println("Сторона квадрата доолжна быть положительным числом от 0 о 99");
 			return;
@@ -27,7 +25,7 @@ public class Square extends Shape {
 	
 		side_a = a;
 		
-		color = clr;
+		
 	}
 	
 	
@@ -72,6 +70,6 @@ public class Square extends Shape {
 
 	@Override
 	public String toString() {
-		return "Square [side_a=" + side_a + ", color=" + color + "]";
+		return "Square [side_a=" + side_a + ", color=" + color + ", area=" + area() + "]";
 	}
 }
