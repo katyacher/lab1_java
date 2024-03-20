@@ -16,15 +16,7 @@ public class Rectangle extends Shape{
 	
 	public Rectangle(double a, double b) {
 		super();
-		if (a < MIN_INT || a > MAX_INT) {
-			System.out.println("Длина стороны 'a' прямоугольника доолжна быть положительным числом от 0 о 99");
-			return;
-		}
-		if (b < MIN_INT || b > MAX_INT) {
-			System.out.println("Длина стороны 'b' прямоугольника доолжна быть положительным числом от 0 о 99");
-			return;
-		}
-		
+
 		side_a = a;
 		side_b = b;
 	}
@@ -35,6 +27,10 @@ public class Rectangle extends Shape{
 	}
 
 	public void setSide_a(double side_a) {
+		if (side_a < MIN_INT || side_a > MAX_INT) {
+			System.out.println("Длина стороны 'a' прямоугольника доолжна быть положительным числом от 0 о 99");
+			return;
+		}
 		this.side_a = side_a;
 	}
 
@@ -43,6 +39,10 @@ public class Rectangle extends Shape{
 	}
 
 	public void setSide_b(double side_b) {
+		if (side_b < MIN_INT || side_b > MAX_INT) {
+			System.out.println("Длина стороны 'b' прямоугольника доолжна быть положительным числом от 0 о 99");
+			return;
+		}
 		this.side_b = side_b;
 	}
 	

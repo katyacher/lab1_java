@@ -11,7 +11,10 @@ public class Main {
 	private static final int MIN_INT = 0;
     private static final int MAX_INT = 6;
     
-    public static ArrayList<Shape> shapes = new ArrayList<>();
+    protected static final int MIN_D = 0;
+	protected static final int MAX_D = 100;
+    
+    public static ArrayList<Shape> shapes = new ArrayList<>();// коллекия фигур
     public static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -73,35 +76,90 @@ public class Main {
 		scanner.skip(".*\n");
 		String ans = scanner.nextLine();
 		
+		String s = "";		
 		if(ans.equals("Triangle")) {
 			System.out.println("Введите значения сторон треугольника:");
-			System.out.println("a = ");
-			double a = scanner.nextDouble();
-			System.out.println("b = ");
-			double b = scanner.nextDouble();
-			System.out.println("c = ");
-			double c = scanner.nextDouble();
 			
-			Shape triangle = new Triangle(a, b, c);
-			shapes.add(triangle);
+			try{
+				System.out.println("a = ");
+				s = scanner.next(); 
+				double a = Double.parseDouble(s);
+				
+				System.out.println("b = ");
+				s = scanner.next(); 
+				double b = Double.parseDouble(s);
+				
+				System.out.println("c = ");
+				s = scanner.next(); 
+				double c = Double.parseDouble(s);
+				
+				if (a < MIN_D || a > MAX_D) {
+					System.out.println("Длина стороны 'a' треугольника доолжна быть положительным числом от 0 о 99");
+					return;
+				}
+				if (b < MIN_D || b > MAX_D) {
+					System.out.println("Длина стороны 'b' треугольника доолжна быть положительным числом от 0 о 99");
+					return;
+				}
+				if (c < MIN_D || c > MAX_D) {
+					System.out.println("Длина стороны 'c' треугольника доолжна быть положительным числом от 0 о 99");
+					return;
+				}
+				
+				Shape triangle = new Triangle(a, b, c);
+				shapes.add(triangle);
+				
+			}catch ( NumberFormatException e) {
+            	System.out.println("Необходимо ввести число.");
+            };
 			
 		} else if(ans.equals("Rectangle")) {
 			System.out.println("Введите значения сторон прямоугольника:");
-			System.out.println("a = ");
-			double a = scanner.nextDouble();
-			System.out.println("b = ");
-			double b = scanner.nextDouble();
 			
-			Shape rectangle = new Rectangle(a, b);
-			shapes.add(rectangle);
+			try{
+				System.out.println("a = ");
+				s = scanner.next(); 
+				double a = Double.parseDouble(s);
+				
+				System.out.println("b = ");
+				s = scanner.next(); 
+				double b = Double.parseDouble(s);
+				
+				if (a < MIN_D || a > MAX_D) {
+					System.out.println("Длина стороны 'a' прямоугольника доолжна быть положительным числом от 0 о 99");
+					return;
+				}
+				if (b < MIN_D || b > MAX_D) {
+					System.out.println("Длина стороны 'b' прямоугольника доолжна быть положительным числом от 0 о 99");
+					return;
+				}
+				
+				Shape rectangle = new Rectangle(a, b);
+				shapes.add(rectangle);
+				
+			}catch ( NumberFormatException e) {
+            	System.out.println("Необходимо ввести число.");
+            };
 			
 		} else if(ans.equals("Square")) {
 			System.out.println("Введите значения стороны квадрата:");
-			System.out.println("a = ");
-			double a = scanner.nextDouble();
 			
-			Shape square = new Square(a);
-			shapes.add(square);
+			try{
+				System.out.println("a = ");
+				s = scanner.next(); 
+				double a = Double.parseDouble(s);
+				
+				if (a < MIN_D || a > MAX_D) {
+					System.out.println("Сторона квадрата доолжна быть положительным числом от 0 о 99");
+					return;
+				}
+				
+				Shape square = new Square(a);
+				shapes.add(square);
+				
+			}catch ( NumberFormatException e) {
+            	System.out.println("Необходимо ввести число.");
+            }
 			
 		}else {
 			System.out.println("Неизвестная фигура");
@@ -120,7 +178,7 @@ public class Main {
 		int ans = 0;
 		while(true) {
 			if(!scanner.hasNextInt()){
-	            System.out.println("Некорректные данные, попробуйте снова!");
+	            System.out.println("Некорректные данные, попробуйте снова.");
 	            scanner.next(); /* считываем все данные, сбрасывая ввод*/
 	        } else {
 	        	ans = scanner.nextInt();
@@ -128,7 +186,7 @@ public class Main {
 	            	shapes.remove(ans);
 	            	break;
 	            } else {
-	            	System.out.println("Некорректный диапазон, попробуйте снова!");
+	            	System.out.println("Некорректный диапазон, попробуйте снова.");
 	            	ans = 0; // устанавливаем ans в 0 для повторного ввода
 	            }
 	       }
@@ -144,7 +202,7 @@ public class Main {
 		} 
 		
 		for(int i = 0; i < shapes.size(); ++i ) {
-			System.out.println(shapes.get(i).toString());
+			System.out.println("[" + i + "] " + shapes.get(i).toString());
 		}
 	}
 	
@@ -168,7 +226,7 @@ public class Main {
 	            scanner.next(); /* считываем все данные, сбрасывая ввод*/
 	        } else {
 	        	index_1 = scanner.nextInt();
-	            if(index_1 >= 0 && index_1 <= shapes.size()){
+	            if(index_1 >= 0 && index_1 < shapes.size()){
 	            	break;
 	            } else {
 	            	System.out.println("Некорректный диапазон, попробуйте снова!");
@@ -185,7 +243,7 @@ public class Main {
 	            scanner.next(); /* считываем все данные, сбрасывая ввод*/
 	        } else {
 	        	index_2 = scanner.nextInt();
-	            if(index_2 >= 0 && index_2 <= shapes.size()){
+	            if(index_2 >= 0 && index_2 < shapes.size()){
 	            	break;
 	            } else {
 	            	System.out.println("Некорректный диапазон, попробуйте снова!");

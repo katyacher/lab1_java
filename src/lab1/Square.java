@@ -14,14 +14,7 @@ public class Square extends Shape {
 	
 	public Square(double a) {
 		super();
-		
-		if (a < MIN_INT || a > MAX_INT) {
-			System.out.println("Сторона квадрата доолжна быть положительным числом от 0 о 99");
-			return;
-		}
-	
 		side_a = a;
-		
 	}
 	
 	

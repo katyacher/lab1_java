@@ -19,19 +19,6 @@ public class Triangle extends Shape {
 	public Triangle(double a, double b, double c) {
 		super();
 		
-		if (a < MIN_INT || a > MAX_INT) {
-			System.out.println("Длина стороны 'a' треугольника доолжна быть положительным числом от 0 о 99");
-			return;
-		}
-		if (b < MIN_INT || b > MAX_INT) {
-			System.out.println("Длина стороны 'b' треугольника доолжна быть положительным числом от 0 о 99");
-			return;
-		}
-		if (c < MIN_INT || c > MAX_INT) {
-			System.out.println("Длина стороны 'c' треугольника доолжна быть положительным числом от 0 о 99");
-			return;
-		}
-		
 		side_a = a;
 		side_b = b;
 		side_c = c;
@@ -43,6 +30,10 @@ public class Triangle extends Shape {
 	}
 
 	public void setSide_a(double side_a) {
+		if (side_a < MIN_INT || side_a > MAX_INT) {
+			System.out.println("Длина стороны 'a' треугольника доолжна быть положительным числом от 0 о 99");
+			return;
+		}
 		this.side_a = side_a;
 	}
 
@@ -51,6 +42,10 @@ public class Triangle extends Shape {
 	}
 
 	public void setSide_b(double side_b) {
+		if (side_b < MIN_INT || side_b > MAX_INT) {
+			System.out.println("Длина стороны 'b' треугольника доолжна быть положительным числом от 0 о 99");
+			return;
+		}
 		this.side_b = side_b;
 	}
 
@@ -59,6 +54,10 @@ public class Triangle extends Shape {
 	}
 
 	public void setSide_c(double side_c) {
+		if (side_c < MIN_INT || side_c > MAX_INT) {
+			System.out.println("Длина стороны 'c' треугольника доолжна быть положительным числом от 0 о 99");
+			return;
+		}
 		this.side_c = side_c;
 	}
 
