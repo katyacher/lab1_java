@@ -59,7 +59,6 @@ public class Main {
                     answer = 0; // устанавливаем answer в 0 для повторного ввода
                 }
             	
-            	
             }catch ( NumberFormatException e) {
             	System.out.println("Необходимо ввести число от 1 до 5.");
             };
@@ -83,12 +82,7 @@ public class Main {
 			System.out.println("c = ");
 			double c = scanner.nextDouble();
 			
-			scanner.skip(".*\n");
-	
-			System.out.println("Введите цвет фигуры (RED, GREEN, BLUE):");
-			String clr = scanner.nextLine();
-			
-			Shape triangle = new Triangle(a, b, c, clr);
+			Shape triangle = new Triangle(a, b, c);
 			shapes.add(triangle);
 			
 		} else if(ans.equals("Rectangle")) {
@@ -98,12 +92,7 @@ public class Main {
 			System.out.println("b = ");
 			double b = scanner.nextDouble();
 			
-			scanner.skip(".*\n");
-			
-			System.out.println("Введите цвет фигуры (RED, GREEN, BLUE):");
-			String clr = scanner.nextLine();
-			
-			Shape rectangle = new Rectangle(a, b, clr);
+			Shape rectangle = new Rectangle(a, b);
 			shapes.add(rectangle);
 			
 		} else if(ans.equals("Square")) {
@@ -111,17 +100,11 @@ public class Main {
 			System.out.println("a = ");
 			double a = scanner.nextDouble();
 			
-			scanner.skip(".*\n");
-			
-			System.out.println("Введите цвет фигуры (RED, GREEN, BLUE):");
-			String clr = scanner.nextLine();
-			
-			Shape square = new Square(a, clr);
+			Shape square = new Square(a);
 			shapes.add(square);
 			
 		}else {
 			System.out.println("Неизвестная фигура");
-			scanner.nextLine();
 		}
 		
 		return;

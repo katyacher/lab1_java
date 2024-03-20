@@ -1,25 +1,21 @@
 package lab1;
 
 import java.util.Objects;
-import java.util.Random;
+
 
 public class Rectangle extends Shape{
 	private double side_a, side_b;//стороны прямоугольника
 	
 	public Rectangle() {
+		super();
 		side_a = 1;
 		side_b = 1;
-		
-		/*Цвет выбираем случайным образом из трех вариантов*/
-		String[] colors = {"RED", "GREEN", "BLUE"};
-		Random random = new Random();
-		int pos = random.nextInt(colors.length);
-		color = colors[pos];
 		
 		System.out.println("Создан прямоугольник по-умолчанию");
 	}
 	
-	public Rectangle(double a, double b, String clr) {
+	public Rectangle(double a, double b) {
+		super();
 		if (a < MIN_INT || a > MAX_INT) {
 			System.out.println("Длина стороны 'a' прямоугольника доолжна быть положительным числом от 0 о 99");
 			return;
@@ -31,8 +27,6 @@ public class Rectangle extends Shape{
 		
 		side_a = a;
 		side_b = b;
-		
-		color = clr;
 	}
 	
 	

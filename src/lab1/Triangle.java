@@ -1,6 +1,6 @@
 package lab1;
 import java.util.Objects;
-import java.util.Random;
+
 
 
 public class Triangle extends Shape {
@@ -8,20 +8,15 @@ public class Triangle extends Shape {
 	private double side_a, side_b, side_c; // стороны треугольника
 	
 	public Triangle() {
+		super();
 		side_a = 1;
 		side_b = 1;
 		side_c = 1;
 		
-		/*Цвет выбираем случайным образом из трех вариантов*/
-		String[] colors = {"RED", "GREEN", "BLUE"};
-		Random random = new Random();
-		int pos = random.nextInt(colors.length);
-		color = colors[pos];
-		
 		System.out.println("Создан треугольник по-умолчанию");
 	}
 	
-	public Triangle(double a, double b, double c, String clr) {
+	public Triangle(double a, double b, double c) {
 		super();
 		
 		if (a < MIN_INT || a > MAX_INT) {

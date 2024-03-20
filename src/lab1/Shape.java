@@ -12,6 +12,7 @@ public abstract class Shape {
 
 	public Shape() {
 		super();
+		
 		/*Цвет выбираем случайным образом из трех вариантов*/
 		String[] colors = {"RED", "GREEN", "BLUE"};
 		Random random = new Random();

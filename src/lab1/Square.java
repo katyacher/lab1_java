@@ -1,21 +1,18 @@
 package lab1;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class Square extends Shape {
 	
 	private double side_a; // сторона квадрата
 	
 	public Square() {
+		super();
 		side_a = 1;//  по-умолчанию генерируется квадрат со стороной, равной 1.
-		
-		
-		
-		System.out.println("Создана окружность по-умолчанию");
+		System.out.println("Создан квадрат по-умолчанию");
 	}
 	
-	public Square(double a, String clr) {
+	public Square(double a) {
 		super();
 		
 		if (a < MIN_INT || a > MAX_INT) {
@@ -24,7 +21,6 @@ public class Square extends Shape {
 		}
 	
 		side_a = a;
-		
 		
 	}
 	
